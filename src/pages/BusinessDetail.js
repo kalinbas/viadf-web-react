@@ -62,6 +62,7 @@ export default class BusinessDetail extends Component {
                     <Container>
                         <Helmet>
                             <title>{'ViaDF - ' + business.name + ' - ¿Cómo llegar en transporte público?'}</title>
+                            <meta name="description" content={ 'Cómo llegar a ' + business.name + " (" + business.category + ")" + (business.colonia ? " en " + business.colonia + ", " + business.delegacion : "" ) +  " usando transporte público"} />
                         </Helmet>
 
                         <h1>{business.name}</h1>

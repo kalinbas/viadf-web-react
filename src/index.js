@@ -16,7 +16,7 @@ injectTapEventPlugin();
 
 ReactDOM.render(
 <BrowserRouter>
-  <Layout></Layout>
+  <Layout hasAds></Layout>
 </BrowserRouter>, document.getElementById('root'));
 
 registerServiceWorker();
