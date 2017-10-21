@@ -1,0 +1,27 @@
+{
+  "name": "viadf",
+  "version": "1.0.0",
+  "homepage": "https://viadf.mx",
+  "private": true,
+  "dependencies": {
+    "google-maps-react": "^1.1.0",
+    "loadjs": "^3.5.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-ga": "^2.3.5",
+    "react-helmet": "^5.2.0",
+    "react-places-autocomplete": "^5.4.3",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "react-tap-event-plugin": "^3.0.2",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.74.2",
+    "superagent": "^3.6.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
