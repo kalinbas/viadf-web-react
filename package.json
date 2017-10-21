@@ -1,11 +1,9 @@
 {
-  "name": "viadf",
+  "name": "viadf-web-react",
   "version": "1.0.0",
   "homepage": "https://viadf.mx",
   "private": true,
   "dependencies": {
-    "google-maps-react": "^1.1.0",
-    "loadjs": "^3.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-ga": "^2.3.5",
