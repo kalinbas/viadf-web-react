@@ -33,6 +33,8 @@ export default class BusinessDetail extends Component {
 
     loadNegocio(name, id) {
         if (name && id) {
+            // quick fix for broken seonames
+            name = name.replace('ñ', 'n')
             this.setState({ isLoading: true });
             superagent.get('https://viadf.mx/service/GetBusiness')
                 .query({ name, id })
@@ -66,7 +68,7 @@ export default class BusinessDetail extends Component {
                         </Helmet>
 
                         <h1>{business.name}</h1>
-                        <p>{business.category}</p>
+                        <p>{business.category} {business.colonia ? " en " + business.colonia + ", " + business.delegacion : "" }</p>
 
                         <Grid stackable columns={2}>
                             <Grid.Column width={10}>

@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import Layout from './Layout';
 
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 
 import 'url-search-params-polyfill';
 
@@ -21,4 +21,4 @@ ReactDOM.render(
   <Layout hasAds></Layout>
 </BrowserRouter>, document.getElementById('root'));
 
-registerServiceWorker();
+//registerServiceWorker();

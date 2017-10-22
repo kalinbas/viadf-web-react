@@ -11,6 +11,15 @@ export default class MarkerMap extends Component {
     this.initMap()
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    // TODO check if position changed
+    if (this.marker && this.props.position) {
+      var position = new window.google.maps.LatLng(this.props.position.lat,this.props.position.lng);
+      this.marker.setPosition(position);
+      this.marker.setTitle(this.props.name)
+    }
+  }
+
   initMap() {
 
     var position = new window.google.maps.LatLng(this.props.position.lat,this.props.position.lng);
