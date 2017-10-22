@@ -14,7 +14,8 @@
     "react-tap-event-plugin": "^3.0.2",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.74.2",
-    "superagent": "^3.6.3"
+    "superagent": "^3.6.3",
+    "url-search-params-polyfill": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

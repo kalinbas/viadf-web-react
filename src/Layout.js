@@ -39,10 +39,12 @@ class Layout extends Component {
         this.logPageView(window.location);
     }
 
-    logPageView(location) {
+    logPageView = (location) => {
         let fullPath = location.pathname + location.search
         ReactGA.set({ page: fullPath });
         ReactGA.pageview(fullPath);
+
+        this.scrollToContent();
     }
 
     registerContentAnchor = (anchor) => {
@@ -168,11 +170,11 @@ class Layout extends Component {
                                 <div style={{ fontSize: '1.4em', margin: '0.5em 0' }}>
                                     <SearchBox from={this.state.from} to={this.state.to} onReady={this.doSearch.bind(this)}></SearchBox>
                                 </div>
-                                <Link style={{ color: 'white' }} to="/Busqueda?de=19.43255865356213%2C-99.13337157141115&amp;a=19.334422%2C-99.18811">Ver ejemplo: ¿Cómo llego del <strong>Zócalo</strong> a <strong>Ciudad Universitaria (UNAM)</strong>?</Link>
+                                <Link style={{ color: 'white' }} to="/Busqueda?de=19.43255865356213%2C-99.13337157141115&a=19.334422%2C-99.18811&origen=Z%C3%B3calo&destino=Ciudad%20Universitaria%20(UNAM)">Ver ejemplo: ¿Cómo llego del <strong>Zócalo</strong> a <strong>Ciudad Universitaria (UNAM)</strong>?</Link>
                             </Container>
                         </Segment>
 
-                        <Segment basic>
+                        <div>
                             <div ref={this.registerContentAnchor} />
                             {this.props.hasAds &&
                                 <Container style={{ padding: '2em 0' }}>
@@ -203,7 +205,7 @@ class Layout extends Component {
                                     <Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>
                                 </Container>
                             }                            
-                        </Segment>
+                        </div>
 
                         <Segment inverted vertical style={{ padding: '3em 0em', backgroundImage: 'url("/img/footer.jpg")', backgroundSize: 'cover', backgroundPosition: 'top ' }}>
                             <Container>

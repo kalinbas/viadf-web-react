@@ -10,6 +10,8 @@ import Layout from './Layout';
 
 import registerServiceWorker from './registerServiceWorker';
 
+import 'url-search-params-polyfill';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();

@@ -64,7 +64,7 @@ export default class SearchResults extends Component {
                 .query({ de: params.de, a: params.a, count: 3, key: '0NSlW6dbj57EoyH3i0yQ3yI575kI8mb4' })
                 .end((err, res) => {
                     if (res.body) {
-                        this.setState({ result: res.body })
+                        this.setState({ result: res.body, selectedIndex: 0, hoverIndex: -1, activeIndex: -1 })
                     }
                     this.setState({ isLoading: false });
                 });
@@ -72,7 +72,7 @@ export default class SearchResults extends Component {
     }
 
     handleMenuClick = (e, { index }) => {
-        this.setState({ selectedIndex: index })
+        this.setState({ selectedIndex: index, hoverIndex: -1, activeIndex: -1 })
     }
 
     handleItemClick = () => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
@@ -15,6 +15,7 @@ import Condiciones from './pages/Condiciones'
 import OpenData from './pages/OpenData'
 import PoligonosTiempoRecorrido from './pages/PoligonosTiempoRecorrido'
 import Privacidad from './pages/Privacidad'
+import NotFound from './pages/NotFound'
 
 export default class Routes extends Component {
 
@@ -47,6 +48,8 @@ export default class Routes extends Component {
             <Route exact path='/poligonostiemporecorrido' component={PoligonosTiempoRecorrido} />
             <Route exact path='/privacidad' component={Privacidad} />
             <Route exact path='/condiciones' component={Condiciones} />
+            <Route exact path="/404" component={NotFound} />
+            <Redirect to="/404" />
         </Switch>);
     }
 }
