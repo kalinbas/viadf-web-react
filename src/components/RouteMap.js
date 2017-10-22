@@ -14,8 +14,16 @@ export default class RouteMap extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // TODO check if arrays changed
-    this.drawLines();
+    if (!this.arraysEqual(prevProps.pieces1, this.props.pieces1) || !this.arraysEqual(prevProps.pieces2, this.props.pieces2) || !this.arraysEqual(prevProps.highlightPieces, this.props.highlightPieces)) {
+      this.drawLines();
+    }
+  }
+
+  arraysEqual(a1, a2) {
+    if (!a1 || !a2) {
+      return a1 === a2;
+    }
+    return a1.length === a2.length && a1.every((v, i) => v.lat === a2[i].lat);
   }
 
   initMap() {
