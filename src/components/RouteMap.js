@@ -10,7 +10,11 @@ export default class RouteMap extends Component {
   state = {}
 
   componentDidMount() {
-    this.initMap()
+    if (window.google && window.google.maps) {
+      this.initMap()
+    } else {
+      window.addEventListener("googleMapsLoaded", this.initMap);
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {

@@ -8,8 +8,13 @@ export default class MarkerMap extends Component {
   state = {  }
 
   componentDidMount() {
-    this.initMap()
+    if (window.google && window.google.maps) {
+      this.initMap()
+    } else {
+      window.addEventListener("googleMapsLoaded", this.initMap);
+    }
   }
+
 
   componentDidUpdate(prevProps, prevState) {
     // TODO check if position changed

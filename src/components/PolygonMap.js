@@ -18,8 +18,13 @@ export default class PolygonMap extends Component {
   state = { isLoading: true, time: '30', type: '2' }
 
   componentDidMount() {
-    this.initMap()
+    if (window.google && window.google.maps) {
+      this.initMap()
+    } else {
+      window.addEventListener("googleMapsLoaded", this.initMap);
+    }
   }
+
 
   initMap() {
 
