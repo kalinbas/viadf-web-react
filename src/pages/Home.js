@@ -18,7 +18,7 @@ export default class Home extends Component {
                     <meta name="keywords" content="buscador, buscar rutas, planeador, como llego, como llegar, como voy, transporte publico, mexico, distrito federal, metro, metrobus, trolebus, pesero, microbus, tren ligero,  RTP, autobus, suburbano, pumabus, por donde" />
                 </Helmet>
 
-                <Grid stackable centered style={{ minHeight: '400px' }}>
+                <Grid stackable centered>
                     <Grid.Row>
                         <Grid.Column width={5}>
                             <Header as='h3' style={{ fontSize: '2em' }}><Icon name="bus" /> Buscar rutas</Header>

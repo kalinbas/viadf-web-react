@@ -20,6 +20,7 @@ import Routes from './Routes'
 import SearchBox from './components/SearchBox'
 import AppBox from './components/AppBox'
 import Ad from './components/Ad'
+import AdInArticle from './components/AdInArticle'
 
 var ReactGA = require('react-ga');
 ReactGA.initialize('UA-31477494-1');
@@ -177,7 +178,8 @@ class Layout extends Component {
                         <div>
                             <div ref={this.registerContentAnchor} />
                             {this.props.hasAds &&
-                                <Container style={{ padding: '2em 0' }}>
+                                <Container style={{ paddingBottom: '2em' }}>
+                                    {/*<AdInArticle client={'2461827238480440'} slot={'5759138194'} ></AdInArticle>*/}
                                     <Ad client={'2461827238480440'} slot={'6254948050'} ></Ad>
                                 </Container>
                             }
@@ -187,12 +189,12 @@ class Layout extends Component {
                             </Responsive>
                             <Responsive as={Container} minWidth={975}>
                                 <Grid>
-                                    <Grid.Row columns={2}>
-                                        <Grid.Column width={this.props.hasAds ? 13 : 16}>
+                                    <Grid.Row columns={false ? 2 : 1}>
+                                        <Grid.Column width={false ? 13 : 16}>
                                             <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo} ></Routes>
                                             <AppBox />
                                         </Grid.Column>
-                                        {this.props.hasAds &&
+                                        { false &&
                                             <Grid.Column width={3}>
                                                 <Ad client={'2461827238480440'} slot={'8069522056'} ></Ad>
                                             </Grid.Column>
@@ -201,7 +203,8 @@ class Layout extends Component {
                                 </Grid>
                             </Responsive>
                             {this.props.hasAds &&
-                                <Container style={{ padding: '2em 0' }}>
+                                <Container style={{ paddingTop: '2em' }}>
+                                    {/*<AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>*/}
                                     <Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>
                                 </Container>
                             }                            

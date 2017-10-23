@@ -13,7 +13,7 @@ export default class Ad extends React.Component {
                     data-ad-client={'ca-pub-' + this.props.client}
                     data-ad-slot={this.props.slot}
                     data-ad-format='auto' />
-            </div>
+            </div>            
         );
     }
 }
