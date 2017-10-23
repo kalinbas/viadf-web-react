@@ -51,11 +51,11 @@ export default class RouteDetail extends Component {
                 {route &&
                     <Container>
                         <Helmet>
-                            <title>{'ViaDF - ' + route.title + ' - ¿Cómo llegar en transporte público?'}</title>
+                            <title>{'ViaDF - ' + route.title + ' - Mapa e información - ¿Cómo llegar en transporte público?'}</title>
                         </Helmet>
 
                         <Breadcrumb>
-                            <Breadcrumb.Section link as={Link} to="/directorio">Lista de Rutas</Breadcrumb.Section>
+                            <Breadcrumb.Section link as={Link} to="/directorio">Directorio de Rutas</Breadcrumb.Section>
                             <Breadcrumb.Divider />
                             <Breadcrumb.Section link as={Link} to={route.typeLink}>{route.typeName}</Breadcrumb.Section>
                             <Breadcrumb.Divider />

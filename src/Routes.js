@@ -28,13 +28,18 @@ export default class Routes extends Component {
 
             <Route exact path='/directorio' component={RouteList} />
 
-            <Route exact path='/directorio/distrito-federal' component={DelegacionList} />
+            
+
+            <Redirect exact path='/directorio/distrito-federal' to='/directorio/ciudad-de-mexico' />
+            <Route exact path='/directorio/ciudad-de-mexico' component={DelegacionList} />
             <Route exact path='/directorio/estado-de-mexico' component={DelegacionList} />
 
-            <Route exact path='/directorio/distrito-federal/:delegacion' component={DelegacionList} />
+            <Route exact path="/directorio/distrito-federal/:delegacion" render={props => (<Redirect exact to={`/directorio/ciudad-de-mexico/${props.match.params.delegacion}`} />)}/>
+            <Route exact path='/directorio/ciudad-de-mexico/:delegacion' component={DelegacionList} />
             <Route exact path='/directorio/estado-de-mexico/:delegacion' component={DelegacionList} />
 
-            <Route exact path='/directorio/distrito-federal/:delegacion/:colonia' component={ColoniaDetail} />
+            <Route exact path="/directorio/distrito-federal/:delegacion/:colonia" render={props => (<Redirect exact to={`/directorio/ciudad-de-mexico/${props.match.params.delegacion}/${props.match.params.colonia}`} />)}/>
+            <Route exact path='/directorio/ciudad-de-mexico/:delegacion/:colonia' component={ColoniaDetail} />
             <Route exact path='/directorio/estado-de-mexico/:delegacion/:colonia' component={ColoniaDetail} />
 
             <Route exact path='/directorio/:type' component={RouteList} />

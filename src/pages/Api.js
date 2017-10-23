@@ -84,12 +84,12 @@ export default class Api extends Component {
                                     <Table.Body>
                                         {a.parameters.map((p, i) => (<Table.Row key={i}>
                                             <Table.Cell>{p.name}</Table.Cell>
-                                            <Table.Cell>{p.description}</Table.Cell>
+                                            <Table.Cell style={{ wordBreak:'break-all' }}>{p.description}</Table.Cell>
                                         </Table.Row>))}
                                     </Table.Body>
                                 </Table>
                                 <h4>Ejemplo</h4>
-                                <a href={a.example} style={{ wordWrap:'break-word' }}>{a.example}</a>
+                                <a href={a.example} style={{ wordBreak:'break-all' }}>{a.example}</a>
                             </Accordion.Content>
                         </div>
                     ))}

@@ -100,7 +100,7 @@ class Layout extends Component {
                             <Icon name="bus" size="big" inverted style={{ margin: '20px' }} />
                             <div style={{ fontSize: '30px', color: 'white', marginBottom: '10px' }}>ViaDF</div>
                         </Menu.Item>
-                        <Menu.Item exact as={NavLink} to="/directorio" onClick={this.hideSideBarAndScrollToContent}>Lista de Rutas</Menu.Item>
+                        <Menu.Item exact as={NavLink} to="/directorio" onClick={this.hideSideBarAndScrollToContent}>Directorio de Rutas</Menu.Item>
                         <Menu.Item exact as={NavLink} to="/opendata" onClick={this.hideSideBarAndScrollToContent}>Datos abiertos</Menu.Item>
                         <Menu.Item exact as={NavLink} to="/api" onClick={this.hideSideBarAndScrollToContent}>REST API</Menu.Item>
                         <Menu.Item exact as={NavLink} to="/poligonostiemporecorrido" onClick={this.hideSideBarAndScrollToContent}>Polígonos</Menu.Item>
@@ -125,7 +125,7 @@ class Layout extends Component {
                             <Container>
                                 <Responsive as={Menu} minWidth={767} inverted pointing secondary size='large'>
                                     <Menu.Item exact as={NavLink} to="/">Inicio</Menu.Item>
-                                    <Menu.Item exact as={NavLink} to="/directorio">Lista de Rutas</Menu.Item>
+                                    <Menu.Item exact as={NavLink} to="/directorio">Directorio de Rutas</Menu.Item>
                                     <Menu.Item exact as={NavLink} to="/opendata">Datos abiertos</Menu.Item>
                                     <Menu.Item exact as={NavLink} to="/api">REST API</Menu.Item>
                                     <Menu.Item exact as={NavLink} to="/poligonostiemporecorrido">Polígonos</Menu.Item>

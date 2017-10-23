@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
     Table,
     Container,
-    Grid  
+    Grid
 } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom'
@@ -58,21 +58,45 @@ export default class BusinessDetail extends Component {
 
         return (
             <Container text>
-                { !business && <LoadingPlaceholder /> }
+                {!business && <LoadingPlaceholder />}
 
                 {business &&
                     <Container>
                         <Helmet>
                             <title>{'ViaDF - ' + business.name + ' - ¿Cómo llegar en transporte público?'}</title>
-                            <meta name="description" content={ 'Cómo llegar a ' + business.name + " (" + business.category + ")" + (business.colonia ? " en " + business.colonia + ", " + business.delegacion : "" ) +  " usando transporte público"} />
+                            <meta name="description" content={'Cómo llegar a ' + business.name + " (" + business.category + ")" + (business.colonia ? " en " + business.colonia + ", " + business.delegacion : "") + " usando transporte público"} />
                         </Helmet>
 
                         <h1>{business.name}</h1>
-                        <p>{business.category} {business.colonia ? " en " + business.colonia + ", " + business.delegacion : "" }</p>
+                        <p>{business.category} {business.colonia ? " en " + business.colonia + ", " + business.delegacion : ""}</p>
 
                         <Grid stackable columns={2}>
                             <Grid.Column width={10}>
                                 <MarkerMap position={{ lat: business.lat, lng: business.lng }} name={business.name}></MarkerMap>
+                                <h2>Conexiones</h2>
+                                <p>De {business.name} se puede cambiar a las siguientes lineas de transporte.</p>
+                                <Table compact="very">
+                                    <Table.Header>
+                                        <Table.Row>
+                                            <Table.HeaderCell>Nombre</Table.HeaderCell>
+                                            <Table.HeaderCell>Origen</Table.HeaderCell>
+                                            <Table.HeaderCell>Destino</Table.HeaderCell>
+                                        </Table.Row>
+                                    </Table.Header>
+                                    <Table.Body>
+                                        {business.connectingRoutes.map(s =>
+                                            <Table.Row key={s.link}>
+                                                <Table.Cell>
+                                                    <Link to={s.link}>{s.typeName} {s.name}</Link>
+                                                </Table.Cell>
+                                                <Table.Cell>{s.from}</Table.Cell>
+                                                <Table.Cell>{s.to}</Table.Cell>
+                                            </Table.Row>
+                                        )}
+                                    </Table.Body>
+                                </Table>
+                            </Grid.Column>
+                            <Grid.Column width={6}>
                                 <h2>Negocios</h2>
                                 <p>Cerca de {business.name} hay los siguientes negocios.</p>
                                 <Table compact="very">
@@ -81,21 +105,6 @@ export default class BusinessDetail extends Component {
                                             <Table.Row key={s.link}>
                                                 <Table.Cell>
                                                     <Link to={s.link}>{s.name}</Link>
-                                                </Table.Cell>
-                                            </Table.Row>
-                                        )}
-                                    </Table.Body>
-                                </Table>
-                            </Grid.Column>
-                            <Grid.Column width={6}>
-                                <h2>Conexiones</h2>
-                                <p>De {business.name} se puede cambiar a las siguientes lineas de transporte.</p>
-                                <Table compact="very">
-                                    <Table.Body>
-                                        {business.connectingRoutes.map(s =>
-                                            <Table.Row key={s.link}>
-                                                <Table.Cell>
-                                                    <Link to={s.link}>{s.typeName} {s.name}</Link>
                                                 </Table.Cell>
                                             </Table.Row>
                                         )}

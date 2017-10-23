@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {
     Breadcrumb,
-    Container,  
-    Table   
+    Container,
+    Table
 } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { Helmet } from "react-helmet";
@@ -44,7 +44,7 @@ export default class ColoniaDetail extends Component {
 
         return (
             <Container text>
-                { !colonia && <LoadingPlaceholder /> }
+                {!colonia && <LoadingPlaceholder />}
 
                 {colonia &&
                     <Container>
@@ -53,7 +53,7 @@ export default class ColoniaDetail extends Component {
                         </Helmet>
 
                         <Breadcrumb>
-                            <Breadcrumb.Section link as={Link} to="/directorio">Lista de Rutas</Breadcrumb.Section>
+                            <Breadcrumb.Section link as={Link} to="/directorio">Directorio de Rutas</Breadcrumb.Section>
                             <Breadcrumb.Divider />
                             <Breadcrumb.Section link as={Link} to={colonia.estadoLink}>{colonia.estadoName}</Breadcrumb.Section>
                             <Breadcrumb.Divider />
@@ -67,6 +67,7 @@ export default class ColoniaDetail extends Component {
                         <Table compact="very" style={{ margin: 0 }}>
                             <Table.Header>
                                 <Table.Row>
+                                    <Table.HeaderCell>Tipo</Table.HeaderCell>
                                     <Table.HeaderCell>Nombre</Table.HeaderCell>
                                     <Table.HeaderCell>Origen</Table.HeaderCell>
                                     <Table.HeaderCell>Destino</Table.HeaderCell>
@@ -76,6 +77,7 @@ export default class ColoniaDetail extends Component {
                                 {
                                     colonia.routes.map(r => (
                                         <Table.Row key={r.link}>
+                                            <Table.Cell>{r.typeName}</Table.Cell>
                                             <Table.Cell><Link to={r.link}>{r.name}</Link></Table.Cell>
                                             <Table.Cell>{r.from}</Table.Cell>
                                             <Table.Cell>{r.to}</Table.Cell>

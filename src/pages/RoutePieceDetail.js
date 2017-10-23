@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import {   
+import {
     Breadcrumb,
-    Table,   
-    Grid, 
-    Container    
+    Table,
+    Grid,
+    Container
 } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom'
@@ -48,7 +48,7 @@ export default class RoutePieceDetail extends Component {
 
         return (
             <Container text>
-                { !routePiece && <LoadingPlaceholder /> }
+                {!routePiece && <LoadingPlaceholder />}
 
                 {routePiece &&
                     <Container>
@@ -57,7 +57,7 @@ export default class RoutePieceDetail extends Component {
                         </Helmet>
 
                         <Breadcrumb>
-                            <Breadcrumb.Section link as={Link} to="/directorio">Lista de Rutas</Breadcrumb.Section>
+                            <Breadcrumb.Section link as={Link} to="/directorio">Directorio de Rutas</Breadcrumb.Section>
                             <Breadcrumb.Divider />
                             <Breadcrumb.Section link as={Link} to={routePiece.typeLink}>{routePiece.typeName}</Breadcrumb.Section>
                             <Breadcrumb.Divider />
@@ -71,6 +71,30 @@ export default class RoutePieceDetail extends Component {
                         <Grid stackable columns={2}>
                             <Grid.Column width={10}>
                                 <MarkerMap position={{ lat: routePiece.lat, lng: routePiece.lng }} name={routePiece.title}></MarkerMap>
+                                <h2>Conexiones</h2>
+                                <p>De {routePiece.title} se puede cambiar a las siguientes lineas de transporte.</p>
+                                <Table compact="very">
+                                    <Table.Header>
+                                        <Table.Row>
+                                            <Table.HeaderCell>Nombre</Table.HeaderCell>
+                                            <Table.HeaderCell>Origen</Table.HeaderCell>
+                                            <Table.HeaderCell>Destino</Table.HeaderCell>
+                                        </Table.Row>
+                                    </Table.Header>
+                                    <Table.Body>
+                                        {routePiece.connectingRoutes.map(s =>
+                                            <Table.Row key={s.link}>
+                                                <Table.Cell>
+                                                    <Link to={s.link}>{s.typeName} {s.name}</Link>
+                                                </Table.Cell>
+                                                <Table.Cell>{s.from}</Table.Cell>
+                                                <Table.Cell>{s.to}</Table.Cell>
+                                            </Table.Row>
+                                        )}
+                                    </Table.Body>
+                                </Table>
+                            </Grid.Column>
+                            <Grid.Column width={6}>
                                 <h2>Negocios</h2>
                                 <p>Cerca de {routePiece.title} hay los siguientes negocios.</p>
                                 <Table compact="very">
@@ -79,21 +103,6 @@ export default class RoutePieceDetail extends Component {
                                             <Table.Row key={s.link}>
                                                 <Table.Cell>
                                                     <Link to={s.link}>{s.name}</Link>
-                                                </Table.Cell>
-                                            </Table.Row>
-                                        )}
-                                    </Table.Body>
-                                </Table>
-                            </Grid.Column>
-                            <Grid.Column width={6}>
-                                <h2>Conexiones</h2>
-                                <p>De {routePiece.title} se puede cambiar a las siguientes lineas de transporte.</p>
-                                <Table compact="very">
-                                    <Table.Body>
-                                        {routePiece.connectingRoutes.map(s =>
-                                            <Table.Row key={s.link}>
-                                                <Table.Cell>
-                                                    <Link to={s.link}>{s.typeName} {s.name}</Link>
                                                 </Table.Cell>
                                             </Table.Row>
                                         )}

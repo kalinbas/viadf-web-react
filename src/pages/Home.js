@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import {
     Grid,
     Header,
-    Icon,      
-    Segment  
+    Icon,
+    Segment
 } from 'semantic-ui-react'
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 export default class Home extends Component {
 
@@ -17,7 +17,7 @@ export default class Home extends Component {
                     <meta name="description" content="Busca conexiones de toda la red del Metro, Metrobús, Tren Ligero, Trolebús, RTP, Autobús, Microbús, Pumabús y Tren Suburbano." />
                     <meta name="keywords" content="buscador, buscar rutas, planeador, como llego, como llegar, como voy, transporte publico, mexico, distrito federal, metro, metrobus, trolebus, pesero, microbus, tren ligero,  RTP, autobus, suburbano, pumabus, por donde" />
                 </Helmet>
-                
+
                 <Grid stackable centered style={{ minHeight: '400px' }}>
                     <Grid.Row>
                         <Grid.Column width={5}>
@@ -29,7 +29,7 @@ export default class Home extends Component {
                         <Grid.Column width={5}>
                             <Header as='h3' style={{ fontSize: '2em' }}><Icon name="users" /> Colaboración</Header>
                             <p style={{ fontSize: '1.33em' }}>
-                                Lamentablemente no existe una base de datos completa de las rutas del transporte público en la CDMX. Por eso en ViaDF invitamos a todos nuestros usuarios a agregar las rutas que conozcan.
+                                Lamentablemente no existe una base de datos completa de las rutas del transporte público en la CDMX. Por eso en ViaDF invitamos a todos nuestros usuarios a <a href="/AgregarRuta" >agregar las rutas</a> que conozcan.
                                 </p>
                         </Grid.Column>
                         <Grid.Column width={5}>

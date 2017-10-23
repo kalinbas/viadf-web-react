@@ -74,9 +74,9 @@ export default class RouteList extends Component {
                 <h1>{typeName ? 'Rutas de ' + typeName : 'Directorio de rutas'}</h1>
                 { typeName 
                     ? 
-                    <p>En este directorio encontrarás un listado de todas las rutas del { typeName }.</p>
+                    <p>En este directorio encontrarás un listado de todas las rutas del { typeName }. Haz click en la ruta que te interesa para ver el mapa de la ruta y más información.</p>
                     :
-                    <p>En este directorio encontrarás un listado de todas las rutas del transporte público de la <Link to={'/directorio/distrito-federal'}>Ciudad de México</Link> y del <Link to={'/directorio/estado-de-mexico'}>Estado de México</Link>. Selecciona un tipo de transporte para ver la lista de las rutas.</p>
+                    <p>En este directorio encontrarás un listado de todas las rutas del transporte público de la <Link to={'/directorio/ciudad-de-mexico'}>Ciudad de México</Link> y del <Link to={'/directorio/estado-de-mexico'}>Estado de México</Link>. Selecciona un tipo de transporte para ver la lista de las rutas.</p>
                 }
                              
 
