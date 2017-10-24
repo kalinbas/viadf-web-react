@@ -183,6 +183,7 @@ export default class SearchResults extends Component {
                                     }
                                 </Table.Body>
                             </Table>
+                            <p style={{fontSize:"smaller"}}>*Por falta de una base de datos completa del transporte público en la CDMX, ViaDF depende de sus usuarios para tener información actualizada de las rutas. Por eso puede ser, que en unos casos los resultados no son correctos. Por favor no dudes en contactarnos en ese caso.</p>
                         </Dimmer.Dimmable>
                     </Container>
                 }

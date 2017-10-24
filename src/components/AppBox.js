@@ -8,7 +8,7 @@ import {
 export default class AppBox extends React.Component {
 
     render() {
-        return (<Container style={{marginTop: '20px'}}>
+        return (<Container style={{margin: '20px 0'}}>
                 <Grid stackable textAlign="center">
                     <Grid.Row>
                         <Grid.Column width={8}>

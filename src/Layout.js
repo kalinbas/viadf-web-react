@@ -179,12 +179,18 @@ class Layout extends Component {
                             <div ref={this.registerContentAnchor} />
                             {this.props.hasAds &&
                                 <Container style={{ paddingBottom: '2em' }}>
-                                    {/*<AdInArticle client={'2461827238480440'} slot={'5759138194'} ></AdInArticle>*/}
-                                    <Ad client={'2461827238480440'} slot={'6254948050'} ></Ad>
+                                    <AdInArticle client={'2461827238480440'} slot={'5759138194'} ></AdInArticle>
+                                    {/*<Ad client={'2461827238480440'} slot={'6254948050'} ></Ad>*/}
                                 </Container>
                             }
                             <Responsive as={Container} maxWidth={974}>
                                 <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo}></Routes>
+                                {this.props.hasAds &&
+                                    <Container style={{ paddingTop: '2em' }}>
+                                        <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
+                                        {/*<Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>*/}
+                                    </Container>
+                                }
                                 <AppBox />
                             </Responsive>
                             <Responsive as={Container} minWidth={975}>
@@ -192,9 +198,15 @@ class Layout extends Component {
                                     <Grid.Row columns={false ? 2 : 1}>
                                         <Grid.Column width={false ? 13 : 16}>
                                             <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo} ></Routes>
+                                            {this.props.hasAds &&
+                                                <Container style={{ paddingTop: '2em' }}>
+                                                    <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
+                                                    {/*<Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>*/}
+                                                </Container>
+                                            }
                                             <AppBox />
                                         </Grid.Column>
-                                        { false &&
+                                        {false &&
                                             <Grid.Column width={3}>
                                                 <Ad client={'2461827238480440'} slot={'8069522056'} ></Ad>
                                             </Grid.Column>
@@ -202,12 +214,6 @@ class Layout extends Component {
                                     </Grid.Row>
                                 </Grid>
                             </Responsive>
-                            {this.props.hasAds &&
-                                <Container style={{ paddingTop: '2em' }}>
-                                    {/*<AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>*/}
-                                    <Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>
-                                </Container>
-                            }                            
                         </div>
 
                         <Segment inverted vertical style={{ padding: '3em 0em', backgroundImage: 'url("/img/footer.jpg")', backgroundSize: 'cover', backgroundPosition: 'top ' }}>
