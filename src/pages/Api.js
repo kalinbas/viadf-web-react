@@ -62,7 +62,7 @@ export default class Api extends Component {
         return (
             <Container text>
                 <Helmet>
-                    <title>ViaDF - REST API - Servicios web</title>
+                    <title>REST API - Servicios web | ViaDF</title>
                 </Helmet>
 
                 <h1>REST API - Servicios web</h1>

@@ -124,7 +124,7 @@ export default class SearchResults extends Component {
                     selectedResult &&
                     <Container>
                         <Helmet>
-                            <title>{'ViaDF - ' + title}</title>
+                            <title>{title + ' | ViaDF'}</title>
                         </Helmet>
                         <Dimmer.Dimmable dimmed={this.state.isLoading}>
                             <Dimmer active={this.state.isLoading} inverted>

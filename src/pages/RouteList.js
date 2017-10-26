@@ -66,7 +66,7 @@ export default class RouteList extends Component {
         return (
             <Container text>
                 <Helmet>
-                    <title>{typeName ? 'ViaDF - Lista de rutas del ' + typeName + ' de la Ciudad de México y del Estado de México' : 'ViaDF - Directorio del transporte público de la Ciudad de México y del Estado de México'}</title>
+                    <title>{typeName ? 'Rutas de ' + typeName + ' - Ciudad de México y Estado de México | ViaDF' : 'Directorio del transporte público de la Ciudad de México y del Estado de México | ViaDF'}</title>
                     <meta name="description" content={typeName ? 'Lista de todas las rutas del ' + typeName + ' en la Ciudad de México y en el Estado de México.' : 'Directorio de las rutas y estaciones del transporte público en la Ciudad de México y del Estado de México.'} />
                     <meta name="keywords" content={(typeName ? typeName : 'directorio') + ', como llegar, como llego, lista rutas, transporte público, méxico, ciudad de méxico, cdmx, estado de méxico'} />
                 </Helmet>

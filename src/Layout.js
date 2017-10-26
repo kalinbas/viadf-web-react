@@ -120,7 +120,7 @@ class Layout extends Component {
                         <Segment
                             inverted
                             textAlign='center'
-                            style={{ minHeight: 350, padding: '1em 0em', backgroundImage: 'url("/img/header.jpg")', backgroundSize: 'cover', backgroundPosition: 'bottom ' }}
+                            style={{ padding: '1em 0em', backgroundImage: 'url("/img/header.jpg")', backgroundSize: 'cover', backgroundPosition: 'bottom ' }}
                             vertical
                         >
                             <Container>
@@ -160,13 +160,13 @@ class Layout extends Component {
                                     as='h1'
                                     content='ViaDF'
                                     inverted
-                                    style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '0.5em' }}
+                                    style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: 0 }}
                                 />
                                 <Header
                                     as='h2'
                                     content='Buscador del Transporte Público - Ciudad de México'
                                     inverted
-                                    style={{ fontSize: '1.7em', fontWeight: 'normal' }}
+                                    style={{ fontSize: '1.7em', fontWeight: 'normal', marginTop: '0.25em' }}
                                 />
                                 <div style={{ fontSize: '1.4em', margin: '0.5em 0' }}>
                                     <SearchBox from={this.state.from} to={this.state.to} onReady={this.doSearch.bind(this)}></SearchBox>

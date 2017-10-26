@@ -11,7 +11,7 @@ export default class Condiciones extends Component {
         return (
             <Container text>
                 <Helmet>
-                    <title>ViaDF - Términos y Condiciones de Uso</title>
+                    <title>Términos y Condiciones de Uso | ViaDF</title>
                 </Helmet>
 
                <h1>Términos y Condiciones de Uso</h1>

@@ -13,7 +13,7 @@ export default class Home extends Component {
         return (
             <Container text>
                 <Helmet>
-                    <title>ViaDF - Página no encontrada</title>
+                    <title>Página no encontrada | ViaDF</title>
                 </Helmet>
 
                 <h1>404 - Página no encontrada</h1>

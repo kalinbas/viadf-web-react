@@ -12,7 +12,7 @@ export default class PoligonosTiempoRecorrido extends Component {
         return (
             <Container text>
                 <Helmet>
-                    <title>ViaDF - Polígonos de tiempo de recorrido</title>
+                    <title>Polígonos de tiempo de recorrido | ViaDF</title>
                 </Helmet>
 
                 <h1>Polígonos de tiempo de recorrido<sup>BETA</sup></h1>

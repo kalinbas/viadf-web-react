@@ -51,7 +51,7 @@ export default class RouteDetail extends Component {
                 {route &&
                     <Container>
                         <Helmet>
-                            <title>{'ViaDF - ' + route.title + ' - Mapa e información - ¿Cómo llegar en transporte público?'}</title>
+                            <title>{ route.title + ' - ¿Cómo llegar en transporte público? | ViaDF'}</title>
                         </Helmet>
 
                         <Breadcrumb>

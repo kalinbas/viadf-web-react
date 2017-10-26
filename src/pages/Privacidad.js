@@ -11,7 +11,7 @@ export default class Privacidad extends Component {
         return (
             <Container text>
                 <Helmet>
-                    <title>ViaDF - Políticas de Privacidad</title>
+                    <title>Políticas de Privacidad | ViaDF</title>
                 </Helmet>
                 <h1>Políticas de Privacidad</h1>
                 <h2>Datos de identificación personal</h2>

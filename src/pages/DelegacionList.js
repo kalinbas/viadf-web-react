@@ -79,7 +79,7 @@ export default class DelegacionList extends Component {
         return (
             <Container>
                 <Helmet>
-                    <title>{ 'ViaDF - Transporte público en ' + name + ' - ¿Cómo llegar en transporte público?' }</title>
+                    <title>{ 'Transporte público en ' + name + ' - ¿Cómo llegar? | ViaDF' }</title>
                 </Helmet>
 
                 <h1>Transporte público { name && ' de ' + (name || '')}</h1>

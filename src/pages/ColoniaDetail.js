@@ -49,7 +49,7 @@ export default class ColoniaDetail extends Component {
                 {colonia &&
                     <Container>
                         <Helmet>
-                            <title>{'ViaDF - Transporte público en ' + colonia.name + ' (' + colonia.delegacionName + ') - ¿Cómo llegar en transporte público?'}</title>
+                            <title>{'Transporte público en ' + colonia.name + ' (' + colonia.delegacionName + ') - ¿Cómo llegar? | ViaDF'}</title>
                         </Helmet>
 
                         <Breadcrumb>

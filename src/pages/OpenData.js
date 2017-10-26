@@ -24,7 +24,7 @@ export default class OpenData extends Component {
         return (
             <Container text>
                 <Helmet>
-                    <title>ViaDF - Datos abiertos</title>
+                    <title>Datos abiertos | ViaDF</title>
                 </Helmet>
 
                 <h1>Datos abiertos</h1>
