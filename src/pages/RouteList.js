@@ -19,27 +19,30 @@ export default class RouteList extends Component {
         isLoading: true
     }
 
+
     componentDidMount() {
         this.load(this.props.match.params.type)
     }
-
+    
     componentWillReceiveProps(nextProps) {
         // if type changed   
         if (nextProps.match.params.type !== this.props.match.params.type) {
             this.load(nextProps.match.params.type)
         }
-    }
+    }    
 
     load(type) {
         if (type && !this.state.lists[type]) {
             this.setState({ isLoading: true });
-            superagent.get('https://viadf.mx/service/GetType')
-                .query({ name: type })
+            
+            // full query
+            superagent.get('https://viadf.mx/service/GetTypeWithRoutes')
+                .query({ name: type.toLowerCase() })
                 .end((err, res) => {
-                    if (res.body) {
+                    if (res.body) {                        
                         var lists = { ...this.state.lists };
-                        lists[type] = res.body;
-                        this.setState({ lists })
+                        lists[type.toLowerCase()] = res.body;
+                        this.setState({ lists });                        
                     }
                     this.setState({ isLoading: false });
                 });
@@ -60,11 +63,22 @@ export default class RouteList extends Component {
             { name: "Mexibús", seoName: "mexibus" }
         ];
 
-        var type = routes.find(r => r.seoName === this.props.match.params.type);
+        var self = this;
+
+        var seoName = self.props.match.params.type ? self.props.match.params.type.toLowerCase() : null;
+
+        var type = null;
+        routes.forEach(r => {
+            if (r.seoName === seoName) {
+                type = r;
+            }
+        })
+        
+
         var typeName = type ? type.name : null;
 
         return (
-            <Container text>
+            <Container text>                
                 <Helmet>
                     <title>{typeName ? 'Rutas de ' + typeName + ' - Ciudad de México y Estado de México | ViaDF' : 'Directorio del transporte público de la Ciudad de México y del Estado de México | ViaDF'}</title>
                     <meta name="description" content={typeName ? 'Lista de todas las rutas del ' + typeName + ' en la Ciudad de México y en el Estado de México.' : 'Directorio de las rutas y estaciones del transporte público en la Ciudad de México y del Estado de México.'} />
@@ -72,24 +86,25 @@ export default class RouteList extends Component {
                 </Helmet>
 
                 <h1>{typeName ? 'Rutas de ' + typeName : 'Directorio de rutas'}</h1>
-                { typeName 
-                    ? 
+                {
+                    typeName &&
                     <p>En este directorio encontrarás un listado de todas las rutas del { typeName }. Haz click en la ruta que te interesa para ver el mapa de la ruta y más información.</p>
-                    :
+                }                             
+                {
+                    !typeName &&
                     <p>En este directorio encontrarás un listado de todas las rutas del transporte público de la <Link to={'/directorio/ciudad-de-mexico'}>Ciudad de México</Link> y del <Link to={'/directorio/estado-de-mexico'}>Estado de México</Link>. Selecciona un tipo de transporte para ver la lista de las rutas.</p>
                 }
-                             
 
                 <Grid>
                     <Grid.Column width={4}>
                         <Menu fluid vertical tabular>
                             {
-                                routes.map(r => <Menu.Item key={r.seoName} as={Link} to={'/directorio/' + r.seoName} content={r.name} active={this.props.match.params.type === r.seoName} />)
+                                routes.map(r => <Menu.Item key={r.seoName} as={Link} to={'/directorio/' + r.seoName} content={r.name} active={seoName === r.seoName} />)
                             }
                         </Menu>
                     </Grid.Column>
                     <Grid.Column stretched width={12}>
-                        {this.props.match.params.type &&
+                        {seoName &&
                             <Dimmer.Dimmable dimmed={this.state.isLoading}>
                                 <Dimmer active={this.state.isLoading} inverted>
                                     <Loader>Cargando datos...</Loader>
@@ -104,7 +119,7 @@ export default class RouteList extends Component {
                                     </Table.Header>
                                     <Table.Body>
                                         {
-                                            this.state.lists[this.props.match.params.type] && this.state.lists[this.props.match.params.type].routes.map(r => (
+                                            this.state.lists[seoName] && this.state.lists[seoName].routes && this.state.lists[seoName].routes.map(r => (
                                                 <Table.Row key={r.link}>
                                                     <Table.Cell><Link to={r.link}>{r.name}</Link></Table.Cell>
                                                     <Table.Cell>{r.from}</Table.Cell>
@@ -117,9 +132,11 @@ export default class RouteList extends Component {
                             </Dimmer.Dimmable>
                         }
                     </Grid.Column>
-                </Grid>
+                </Grid>              
 
             </Container>
         );
-    }
+
+        
+    }    
 }

@@ -107,7 +107,7 @@ export default class SearchResults extends Component {
         let pieces = [];
         let highlightPieces = [];
         if (selectedResult) {
-            title = '¿Cómo llego de ' + (params.origen || selectedResult.Start.Name || "Inicio") + ' a ' + (params.destino || selectedResult.End.Name || "Destino") + '?'
+            title = '¿Cómo llegar de ' + (params.origen || selectedResult.Start.Name || "Inicio") + ' a ' + (params.destino || selectedResult.End.Name || "Destino") + '?'
             selectedResult.Items.forEach((i, index) => {
                 i.Path.forEach(p => {
                     pieces.push({ lat: p.Lat, lng: p.Lng })

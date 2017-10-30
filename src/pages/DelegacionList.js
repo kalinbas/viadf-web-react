@@ -43,7 +43,7 @@ export default class DelegacionList extends Component {
         if (name && this.state.estado.delegaciones.length === 0) {
             this.setState({ isLoading: true });
             superagent.get('https://viadf.mx/service/GetEstado')
-            .query({ name: name })
+            .query({ name: name.toLowerCase() })
             .end((err, res) => {
                 if (res.body) {
                     this.setState({ estado: res.body })
@@ -57,11 +57,11 @@ export default class DelegacionList extends Component {
         if (estado && name && !this.state.delegaciones[name]) {
             this.setState({ isLoading: true });
             superagent.get('https://viadf.mx/service/GetDelegacion')
-            .query({ estado: estado, name: name})
+            .query({ estado: estado.toLowerCase(), name: name.toLowerCase() })
             .end((err, res) => {
                 if (res.body) {
                     var delegaciones = { ...this.state.delegaciones };
-                    delegaciones[name] = res.body;
+                    delegaciones[name.toLowerCase()] = res.body;
                     this.setState({ delegaciones })
                 }
                 this.setState({ isLoading: false });
@@ -72,7 +72,15 @@ export default class DelegacionList extends Component {
     render() {
 
         // find delegacion selected
-        var delegacion = this.state.estado.delegaciones.find(d => d.seoName === this.props.match.params.delegacion);
+        var delegacion = null;
+
+        var delegacionName = this.props.match.params.delegacion ? this.props.match.params.delegacion.toLowerCase() : null;
+
+        this.state.estado.delegaciones.forEach(d => {
+            if (d.seoName === delegacionName) {
+                delegacion = d;
+            }
+        })
 
         var name = ((delegacion && delegacion.name + " - ") || "") + (this.state.estado && (this.state.estado.name || ""));
 
@@ -89,7 +97,7 @@ export default class DelegacionList extends Component {
                     <Grid.Column width={4}>
                         <Menu fluid vertical tabular>
                             {
-                                this.state.estado.delegaciones.map(r => <Menu.Item as={Link} key={r.seoName} to={r.link} content={r.name} active={this.props.match.params.delegacion === r.seoName} />)
+                                this.state.estado.delegaciones.map(r => <Menu.Item as={Link} key={r.seoName} to={r.link} content={r.name} active={delegacionName === r.seoName} />)
                             }
                         </Menu>
                     </Grid.Column>
@@ -107,7 +115,7 @@ export default class DelegacionList extends Component {
                                     </Table.Header>
                                     <Table.Body>
                                         {
-                                            this.state.delegaciones[this.props.match.params.delegacion] && this.state.delegaciones[this.props.match.params.delegacion].colonias.map(r => (
+                                            this.state.delegaciones[delegacionName] && this.state.delegaciones[delegacionName].colonias.map(r => (
                                                 <Table.Row>
                                                     <Table.Cell><Link to={r.link}>{r.name}</Link></Table.Cell>
                                                 </Table.Row>))

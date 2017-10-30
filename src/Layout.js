@@ -22,6 +22,8 @@ import AppBox from './components/AppBox'
 import Ad from './components/Ad'
 import AdInArticle from './components/AdInArticle'
 
+import Helmet from 'react-helmet'
+
 var ReactGA = require('react-ga');
 ReactGA.initialize('UA-31477494-1');
 
@@ -93,8 +95,24 @@ class Layout extends Component {
     render() {
         const { sidebar } = this.state
 
+        // create lower case canonical url (without query string)
+        let canonical = window.location.href;
+        if (canonical) {
+            var index = canonical.indexOf('?');
+            if (index > 0) {
+                canonical = canonical.substr(0, index).toLowerCase() + canonical.substr(index);
+            } else {
+                canonical = canonical.toLowerCase();
+            }
+        }
+
         return (
             <div>
+                { canonical &&
+                    <Helmet>
+                        <link rel="canonical" href={canonical} />
+                    </Helmet>
+                }
                 <Sidebar.Pushable as={Segment} basic>
                     <Sidebar as={Menu} animation='overlay' visible={sidebar} icon='labeled' vertical inverted width="thin">
                         <Menu.Item exact as={NavLink} to="/" onClick={this.hideSideBarAndScrollToContent}>
@@ -171,7 +189,7 @@ class Layout extends Component {
                                 <div style={{ fontSize: '1.4em', margin: '0.5em 0' }}>
                                     <SearchBox from={this.state.from} to={this.state.to} onReady={this.doSearch.bind(this)}></SearchBox>
                                 </div>
-                                <Link style={{ color: 'white' }} to="/Busqueda?de=19.43255865356213%2C-99.13337157141115&a=19.334422%2C-99.18811&origen=Z%C3%B3calo&destino=Ciudad%20Universitaria%20(UNAM)">Ver ejemplo: ¿Cómo llego del <strong>Zócalo</strong> a <strong>Ciudad Universitaria (UNAM)</strong>?</Link>
+                                <Link style={{ color: 'white' }} to="/Busqueda?de=19.43255865356213%2C-99.13337157141115&a=19.334422%2C-99.18811&origen=Z%C3%B3calo&destino=Ciudad%20Universitaria%20(UNAM)">Ver ejemplo: ¿Cómo llegar del <strong>Zócalo</strong> a <strong>Ciudad Universitaria (UNAM)</strong>?</Link>
                             </Container>
                         </Segment>
 
@@ -185,26 +203,26 @@ class Layout extends Component {
                             }
                             <Responsive as={Container} maxWidth={974}>
                                 <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo}></Routes>
+                                <AppBox />
                                 {this.props.hasAds &&
                                     <Container style={{ paddingTop: '2em' }}>
                                         <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
                                         {/*<Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>*/}
                                     </Container>
                                 }
-                                <AppBox />
                             </Responsive>
                             <Responsive as={Container} minWidth={975}>
                                 <Grid>
                                     <Grid.Row columns={false ? 2 : 1}>
                                         <Grid.Column width={false ? 13 : 16}>
                                             <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo} ></Routes>
+                                            <AppBox />
                                             {this.props.hasAds &&
                                                 <Container style={{ paddingTop: '2em' }}>
                                                     <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
                                                     {/*<Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>*/}
                                                 </Container>
                                             }
-                                            <AppBox />
                                         </Grid.Column>
                                         {false &&
                                             <Grid.Column width={3}>

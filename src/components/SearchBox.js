@@ -74,7 +74,7 @@ class SearchBox extends Component {
         }
         { this.state.googleMapsReady &&
           <Responsive as="div" minWidth={991}>
-            ¿Cómo llego de <PlaceInput location={this.state.from} onSelect={this.changeFrom} /> a <PlaceInput location={this.state.to} onSelect={this.changeTo} /> ?
+            ¿Cómo llegar de <PlaceInput location={this.state.from} onSelect={this.changeFrom} /> a <PlaceInput location={this.state.to} onSelect={this.changeTo} /> ?
           </Responsive>
         }
       </div>

@@ -96,7 +96,7 @@ export default class PolygonMap extends Component {
           <Loader>Cargando datos...</Loader>
         </Dimmer>
         <h2 style={{ margin: '0 0 10px 0' }}>
-          ¿ A dónde llego{' '}
+          ¿ A dónde llegar{' '}
           <Dropdown inline value={this.state.type} onChange={this.onChangeType} options={[{ value: '2', text: 'en transporte público' }, { value: '1', text: 'caminando' }]} />
           en{' '}
           <Dropdown inline value={this.state.time} onChange={this.onChangeTime} options={[{ value: '10', text: '10 minutos' }, { value: '15', text: '15 minutos' }, { value: '20', text: '20 minutos' }, { value: '25', text: '25 minutos' }, { value: '30', text: '30 minutos' }, { value: '35', text: '35 minutos' }, { value: '40', text: '40 minutos' }, { value: '45', text: '45 minutos' }]} />
