@@ -8,8 +8,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 import Layout from './Layout';
 
-//import registerServiceWorker from './registerServiceWorker';
-
 import 'url-search-params-polyfill';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -20,5 +18,3 @@ ReactDOM.render(
 <BrowserRouter>
   <Layout hasAds></Layout>
 </BrowserRouter>, document.getElementById('root'));
-
-//registerServiceWorker();

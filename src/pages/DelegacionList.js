@@ -85,7 +85,7 @@ export default class DelegacionList extends Component {
         var name = ((delegacion && delegacion.name + " - ") || "") + (this.state.estado && (this.state.estado.name || ""));
 
         return (
-            <Container>
+            <Container text>
                 <Helmet>
                     <title>{ 'Transporte público en ' + name + ' - ¿Cómo llegar? | ViaDF' }</title>
                 </Helmet>
