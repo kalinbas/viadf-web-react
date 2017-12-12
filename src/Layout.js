@@ -204,7 +204,7 @@ class Layout extends Component {
                             <Responsive as={Container} maxWidth={974}>
                                 <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo}></Routes>
                                 <AppBox />
-                                {this.props.hasAds &&
+                                {this.props.hasAds && false &&
                                     <Container style={{ paddingTop: '2em' }}>
                                         <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
                                         {/*<Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>*/}
@@ -217,7 +217,7 @@ class Layout extends Component {
                                         <Grid.Column width={false ? 13 : 16}>
                                             <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo} ></Routes>
                                             <AppBox />
-                                            {this.props.hasAds &&
+                                            {this.props.hasAds && false &&
                                                 <Container style={{ paddingTop: '2em' }}>
                                                     <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
                                                     {/*<Ad client={'2461827238480440'} slot={'9987143659'} ></Ad>*/}
