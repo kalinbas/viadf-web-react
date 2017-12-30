@@ -108,7 +108,7 @@ class Layout extends Component {
 
         return (
             <div>
-                { canonical &&
+                {canonical &&
                     <Helmet>
                         <link rel="canonical" href={canonical} />
                     </Helmet>
@@ -134,7 +134,7 @@ class Layout extends Component {
                             </Menu.Menu>
                         </Menu.Item>
                     </Sidebar>
-                    <Sidebar.Pusher dimmed={sidebar} onClick={this.hideSideBar}>
+                    <Sidebar.Pusher dimmed={sidebar} onClick={this.hideSideBar}>                        
                         <Segment
                             inverted
                             textAlign='center'
@@ -203,7 +203,7 @@ class Layout extends Component {
                             }
                             <Responsive as={Container} maxWidth={974}>
                                 <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo}></Routes>
-                                <AppBox />
+                                <AppBox />                                
                                 {this.props.hasAds && false &&
                                     <Container style={{ paddingTop: '2em' }}>
                                         <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
@@ -216,7 +216,7 @@ class Layout extends Component {
                                     <Grid.Row columns={false ? 2 : 1}>
                                         <Grid.Column width={false ? 13 : 16}>
                                             <Routes onSetFrom={this.changeFrom} onSetTo={this.changeTo} ></Routes>
-                                            <AppBox />
+                                            <AppBox />                                           
                                             {this.props.hasAds && false &&
                                                 <Container style={{ paddingTop: '2em' }}>
                                                     <AdInArticle client={'2461827238480440'} slot={'6406839601'} ></AdInArticle>
@@ -257,8 +257,6 @@ class Layout extends Component {
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
-
-
             </div>
         )
     }
